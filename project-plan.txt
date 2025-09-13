@@ -1,0 +1,142 @@
+PROJECT DESCRIPTION: LIVE LECTURE TRANSCRIPTION WITH MINECRAFT PARKOUR
+
+=============================================================================
+
+OVERVIEW
+--------
+A web application that provides real-time speech transcription overlaid on 
+Minecraft parkour footage to maintain attention during lectures. The app 
+captures audio, transcribes speech live, displays text over background video, 
+saves full transcripts, and integrates with ChatGPT for lecture summarization.
+
+CORE FEATURES
+-------------
+- Real-time audio capture from microphone
+- Live speech-to-text transcription with low latency
+- Background video playback of Minecraft parkour footage
+- Text overlay system with readable styling
+- Session management with start/stop controls
+- Transcript export as downloadable text file
+- ChatGPT integration for lecture summarization
+
+TECHNOLOGY STACK
+================
+
+Frontend Framework
+------------------
+- React + TypeScript - Component-based UI with type safety
+- Vite - Fast development server and build tool
+
+Speech Recognition
+------------------
+- Web Speech API (primary) - Native browser speech recognition
+- SpeechRecognition interface with continuous listening
+- Fallback: AssemblyAI WebSocket API for better accuracy/reliability
+
+Audio Processing
+----------------
+- MediaRecorder API - Browser native audio capture
+- Web Audio API - Audio stream processing and analysis
+
+Video Playback
+--------------
+- HTML5 Video Element - Native video playback
+- Custom video controls - Seamless looping of parkour footage
+
+Styling & UI
+------------
+- Tailwind CSS - Utility-first styling
+- Framer Motion - Smooth text animations and transitions
+
+State Management
+----------------
+- Zustand - Lightweight state management for transcript data
+
+External Integration
+--------------------
+- OpenAI API - ChatGPT integration for summarization
+- File System Access API - Download transcript files
+
+IMPLEMENTATION ACTION PLAN
+==========================
+
+Phase 1: Project Setup (Day 1)
+-------------------------------
+1. Initialize React + TypeScript project with Vite
+2. Install dependencies: Tailwind CSS, Framer Motion, Zustand
+3. Set up project structure with components, hooks, and utils folders
+4. Configure TypeScript and ESLint rules
+
+Phase 2: Core Video System (Day 1-2)
+-------------------------------------
+1. Create VideoPlayer component with HTML5 video element
+2. Implement seamless looping for Minecraft parkour footage
+3. Add video controls (play/pause, volume)
+4. Test video performance and optimize for smooth playback
+
+Phase 3: Audio Capture & Transcription (Day 2-3)
+-------------------------------------------------
+1. Implement microphone permission handling
+2. Set up Web Speech API with continuous recognition
+3. Create TranscriptionEngine hook for speech processing
+4. Add error handling for unsupported browsers
+5. Implement fallback system with AssemblyAI WebSocket
+
+Phase 4: Text Overlay System (Day 3-4)
+---------------------------------------
+1. Create TextOverlay component with positioned text
+2. Design readable styling (background, font, size, positioning)
+3. Implement live text updates with smooth animations
+4. Add text history display with scrollable transcript
+5. Create responsive design for different screen sizes
+
+Phase 5: Session Management (Day 4-5)
+--------------------------------------
+1. Build SessionControls component (start/stop/pause)
+2. Implement transcript storage with Zustand store
+3. Add session timer and word count display
+4. Create export functionality for transcript download
+5. Add session persistence in localStorage
+
+Phase 6: ChatGPT Integration (Day 5-6)
+---------------------------------------
+1. Set up OpenAI API integration
+2. Create summarization endpoint (or client-side call)
+3. Build SummaryModal component with loading states
+4. Implement error handling for API failures
+5. Add copy/download options for summaries
+
+Phase 7: Polish & Testing (Day 6-7)
+------------------------------------
+1. Cross-browser testing (Chrome, Firefox, Safari, Edge)
+2. Performance optimization for long transcription sessions
+3. UI/UX improvements and accessibility features
+4. Mobile responsiveness testing
+5. Error boundary implementation for graceful failures
+
+KEY LIBRARIES TO INSTALL
+========================
+npm install react typescript vite
+npm install tailwindcss framer-motion zustand
+npm install @types/web-speech-api openai
+
+CRITICAL IMPLEMENTATION NOTES
+==============================
+- Microphone permissions must be handled gracefully with user prompts
+- Web Speech API has browser limitations (Chrome works best)
+- Video memory management for long sessions to prevent crashes
+- Rate limiting for ChatGPT API calls to manage costs
+- Offline fallback when network connectivity is poor
+
+ESTIMATED TIMELINE
+==================
+Total Development Time: 7 days
+Daily Sessions: 3-4 hours
+Total Hours: 21-28 hours
+
+The project is designed to be completed in about a week with daily development 
+sessions. The Web Speech API will provide the most reliable transcription 
+experience in Chrome, while the fallback ensures broader browser support. The 
+combination of engaging Minecraft footage with live transcription should 
+effectively maintain attention during lectures while capturing valuable content 
+for later review.
